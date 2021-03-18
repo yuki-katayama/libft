@@ -6,7 +6,7 @@
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 03:18:11 by kyuki             #+#    #+#             */
-/*   Updated: 2020/10/11 03:18:14 by kyuki            ###   ########.fr       */
+/*   Updated: 2021/03/18 19:44:24 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, \
 void *(*f)(void *), void (*del)(void *));
 void			*ft_free(char **word, int index);
+float			ft_sqrt(float x);
 
 #endif
