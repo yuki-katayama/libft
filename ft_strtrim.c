@@ -6,7 +6,7 @@
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 03:11:11 by kyuki             #+#    #+#             */
-/*   Updated: 2020/10/11 03:11:13 by kyuki            ###   ########.fr       */
+/*   Updated: 2021/04/04 23:43:13 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char const *s1, char const *set)
 		(*end)--;
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*str;
 	size_t	i;

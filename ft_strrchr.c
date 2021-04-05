@@ -6,7 +6,7 @@
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 03:10:59 by kyuki             #+#    #+#             */
-/*   Updated: 2020/10/11 03:11:01 by kyuki            ###   ########.fr       */
+/*   Updated: 2021/04/04 23:43:57 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t length;
+	size_t	length;
 
 	length = ft_strlen(s) + 1;
 	while (length-- > 0)

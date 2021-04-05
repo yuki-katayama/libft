@@ -5,10 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/18 19:35:52 by kyuki             #+#    #+#             */
-/*   Updated: 2021/03/18 19:42:15 by kyuki            ###   ########.fr       */
+/*   Created: 2021/04/04 23:53:08 by kyuki             #+#    #+#             */
+/*   Updated: 2021/04/05 15:45:59 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 static int	putnbr_base_int(int nb, int base)
 {
@@ -21,9 +23,9 @@ static int	putnbr_base_int(int nb, int base)
 	return (len + 1);
 }
 
-int			ft_putnbr_base_int(int nbr, char *base, int size)
+int	ft_putnbr_base_int(int nbr, int size)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (nbr < 0)

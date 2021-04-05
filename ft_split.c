@@ -6,7 +6,7 @@
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 03:09:46 by kyuki             #+#    #+#             */
-/*   Updated: 2020/10/11 03:09:47 by kyuki            ###   ########.fr       */
+/*   Updated: 2021/04/05 16:44:39 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	check_if_sep(char c, char charset)
 	return (0);
 }
 
-static int	count_str(char const *str, char sep)
+static int	cnt_str(char const *str, char sep)
 {
 	int	i;
 	int	count;
@@ -55,7 +55,7 @@ static char	*assign_res(char const *str, char sep)
 	int		i;
 	char	*res;
 
-	if (!(res = (char *)malloc(sizeof(char) * (ft_strlen_sep(str, sep) + 1))))
+	if (!(ft_malloc_p((void **)&res, (ft_strlen_sep(str, sep) + 1))))
 		return (NULL);
 	i = 0;
 	while (str[i] && !(check_if_sep(str[i], sep)))
@@ -67,7 +67,7 @@ static char	*assign_res(char const *str, char sep)
 	return (res);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**words;
 	size_t	i;
@@ -75,7 +75,7 @@ char		**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	if (!(words = (char **)malloc(sizeof(char *) * (count_str(s, c) + 1))))
+	if (!(ft_malloc_pp((void ***)&words, sizeof(char *) * (cnt_str(s, c) + 1))))
 		return (NULL);
 	j = 0;
 	i = 0;
@@ -85,7 +85,8 @@ char		**ft_split(char const *s, char c)
 			i++;
 		if (s[i])
 		{
-			if (!(words[j++] = assign_res(s + i, c)))
+			words[j] = assign_res(s + i, c);
+			if (!(words[j++]))
 				return (ft_free(words, (int)i));
 		}
 		while (s[i] && !(check_if_sep(s[i], c)))

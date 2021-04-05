@@ -6,7 +6,7 @@
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 03:11:15 by kyuki             #+#    #+#             */
-/*   Updated: 2020/10/11 03:11:17 by kyuki            ###   ########.fr       */
+/*   Updated: 2021/04/05 12:22:05 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	length = ft_strlen(s);
 	if (start >= length)
 	{
-		if (!(str = malloc(sizeof(char) * 1)))
+		if (!(ft_malloc_p((void **)&str, sizeof(char) * 1)))
 			return (NULL);
 		*str = '\0';
 		return (str);
 	}
 	i = 0;
-	if (!(str = malloc(sizeof(char) * len + 1)))
+	if (!(ft_malloc_p((void **)&str, sizeof(char) * len + 1)))
 		return (NULL);
 	while (i < len)
 	{

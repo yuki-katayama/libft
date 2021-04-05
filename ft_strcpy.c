@@ -6,7 +6,7 @@
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 03:10:06 by kyuki             #+#    #+#             */
-/*   Updated: 2020/10/11 03:10:07 by kyuki            ###   ########.fr       */
+/*   Updated: 2021/04/04 23:46:45 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strcpy(char *dst, const char *src)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (src[i] != '\0')

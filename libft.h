@@ -1,17 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/11 03:18:11 by kyuki             #+#    #+#             */
-/*   Updated: 2021/03/18 19:44:24 by kyuki            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#ifndef _LIBFT_H
-# define _LIBFT_H
+#ifndef LIBFT_H
+# define LIBFT_H
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -20,7 +8,7 @@
 # include <unistd.h>
 # include <ctype.h>
 
-typedef	struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -38,7 +26,7 @@ char			*ft_strncat(char *s1, const char *s2, size_t n);
 size_t			ft_strlen(const char *s);
 char			*ft_strdup(char *src);
 char			*ft_strcpy(char *dst, const char *src);
-char			*ft_strcat(char *restrict s1, const char *restrict s2);
+char			*ft_strcat(char *s1, const char *s2);
 int				ft_isprint(int c);
 int				ft_isdigit(int c);
 int				ft_isascii(int c);
@@ -55,12 +43,12 @@ void			*ft_memchr(const void *s, int c, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strrchr(const char *s, int c);
-char			*ft_strnstr(const char *haystack,\
-const char *needle, size_t len);
-size_t			ft_strlcpy(char *restrict dst,\
-const char	*src, size_t dstsize);
-size_t			ft_strlcat(char *restrict dst,\
-const char	*src, size_t dstsize);
+char			*ft_strnstr(const char *haystack, \
+								const char *needle, size_t len);
+size_t			ft_strlcpy(char *dst, \
+								const char	*src, size_t dstsize);
+size_t			ft_strlcat(char *dst, \
+								const char	*src, size_t dstsize);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			**ft_split(char const *s, char c);
 char			*ft_itoa(int n);
@@ -82,8 +70,9 @@ void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, \
-void *(*f)(void *), void (*del)(void *));
+								void *(*f)(void *), void (*del)(void *));
 void			*ft_free(char **word, int index);
-float			ft_sqrt(float x);
+int				ft_malloc_p(void **p, size_t len);
+int				ft_malloc_pp(void ***p, size_t len);
 
 #endif

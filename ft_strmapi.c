@@ -6,7 +6,7 @@
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 03:10:41 by kyuki             #+#    #+#             */
-/*   Updated: 2020/10/11 03:10:42 by kyuki            ###   ########.fr       */
+/*   Updated: 2021/04/05 12:22:05 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!s)
 		return (NULL);
 	length = ft_strlen(s);
-	if (!(s1 = malloc(sizeof(char) * length + 1)))
+	if (!(ft_malloc_p((void **)&s1, sizeof(char) * length + 1)))
 		return (NULL);
 	i = 0;
 	while (s[i])

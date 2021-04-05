@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyuki <kyuki@student.42tokyo.js>           +#+  +:+       +#+        */
+/*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 15:34:19 by kyuki             #+#    #+#             */
-/*   Updated: 2020/08/07 17:06:31 by kyuki            ###   ########.fr       */
+/*   Updated: 2021/04/04 23:56:35 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void				ft_putchar(char c)
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }

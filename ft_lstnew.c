@@ -6,7 +6,7 @@
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 03:02:42 by kyuki             #+#    #+#             */
-/*   Updated: 2020/10/11 03:02:44 by kyuki            ###   ########.fr       */
+/*   Updated: 2021/04/05 12:22:05 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list *a;
+	t_list	*a;
 
 	a = NULL;
-	if (!(a = malloc(sizeof(t_list))))
+	if (!(ft_malloc_p((void **)&a, sizeof(t_list))))
 		return (NULL);
 	a->content = (char *)content;
 	a->next = NULL;

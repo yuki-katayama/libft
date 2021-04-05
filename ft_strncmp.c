@@ -6,7 +6,7 @@
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/27 01:26:35 by kyuki             #+#    #+#             */
-/*   Updated: 2020/09/27 01:26:37 by kyuki            ###   ########.fr       */
+/*   Updated: 2021/04/04 23:45:09 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	if (n == 0)

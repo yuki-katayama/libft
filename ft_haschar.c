@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_haschar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/27 01:26:28 by kyuki             #+#    #+#             */
-/*   Updated: 2021/04/04 23:45:27 by kyuki            ###   ########.fr       */
+/*   Created: 2020/10/11 03:09:55 by kyuki             #+#    #+#             */
+/*   Updated: 2021/04/05 00:00:59 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *s1, const char *s2, size_t n)
+int	ft_haschar(const char *s, int c)
 {
-	size_t	dest_len;
+	size_t	length;
 	size_t	i;
 
-	dest_len = 0;
-	while (s1[dest_len])
-		dest_len++;
 	i = 0;
-	while (i < n && s2[i])
+	length = ft_strlen(s) + 1;
+	while (i < length)
 	{
-		s1[dest_len + i] = s2[i];
+		if (((unsigned char *)s)[i] == (unsigned char)c)
+			return (0);
 		i++;
 	}
-	s1[dest_len + i] = '\0';
-	return (s1);
+	return (-1);
 }

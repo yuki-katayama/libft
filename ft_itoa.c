@@ -6,7 +6,7 @@
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 03:02:05 by kyuki             #+#    #+#             */
-/*   Updated: 2020/10/11 03:02:08 by kyuki            ###   ########.fr       */
+/*   Updated: 2021/04/05 12:22:05 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	ft_itoa_process(char *dest, long length, long n, long negative)
 	}
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*dest;
 	long	negative;
@@ -59,7 +59,7 @@ char		*ft_itoa(int n)
 
 	length = 0;
 	negative = itoa_negative_length(&n, &length);
-	if (!(dest = malloc(sizeof(char) * (length) + 1)))
+	if (!(ft_malloc_p((void **)&dest, sizeof(char) * (length) + 1)))
 		return (NULL);
 	if (n == 0)
 	{
