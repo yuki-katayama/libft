@@ -6,7 +6,7 @@
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 03:09:46 by kyuki             #+#    #+#             */
-/*   Updated: 2021/04/05 18:14:01 by kyuki            ###   ########.fr       */
+/*   Updated: 2021/05/30 14:43:26 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ char	**ft_split(char const *s, char c)
 		{
 			words[j] = assign_res(s + i, c);
 			if (!(words[j++]))
-				return (ft_free(words, (int)i));
+				return (ft_free_char(words, (int)i));
 		}
 		while (s[i] && !(check_if_sep(s[i], c)))
 			i++;

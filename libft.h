@@ -71,11 +71,12 @@ void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, \
 								void *(*f)(void *), void (*del)(void *));
-void			*ft_free(char **word, int index);
+void			*ft_free_char(char **word, int index);
 int				ft_malloc_p(void **p, size_t len);
 int				ft_malloc_pp(void ***p, size_t len);
 void			ft_swap(int *a, int *b);
 int				ft_spaceskip(const char *str, int *i);
 t_list			*ft_lstcpy(t_list *lst);
+void			ft_free_int(int **ptr);
 
 #endif
