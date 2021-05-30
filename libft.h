@@ -76,5 +76,6 @@ int				ft_malloc_p(void **p, size_t len);
 int				ft_malloc_pp(void ***p, size_t len);
 void			ft_swap(int *a, int *b);
 int				ft_spaceskip(const char *str, int *i);
+t_list			*ft_lstcpy(t_list *lst);
 
 #endif

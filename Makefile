@@ -6,7 +6,7 @@
 #    By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/18 17:12:33 by kyuki             #+#    #+#              #
-#    Updated: 2021/04/05 16:43:08 by kyuki            ###   ########.fr        #
+#    Updated: 2021/05/30 11:57:46 by kyuki            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,8 @@ ft_putnbr_base_int.c \
 ft_putnbr_base_unsigned_int.c \
 ft_sqrt.c \
 ft_lstlast.c \
-ft_swap.c
+ft_swap.c \
+ft_lstcpy.c
 
 
 BONUS =	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
