@@ -78,5 +78,6 @@ void			ft_swap(int *a, int *b);
 int				ft_spaceskip(const char *str, int *i);
 t_list			*ft_lstcpy(t_list *lst);
 void			ft_free_int(int **ptr);
+void			ft_quick_sort(int *nums, int left, int right);
 
 #endif
