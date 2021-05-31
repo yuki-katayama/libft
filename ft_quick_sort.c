@@ -39,7 +39,7 @@ void	ft_quick_sort(int *nums, int left, int right)
 	while (pl <= pr)
 		ft_quick_swap(nums, &pl, &pr, x);
 	if (left < pr)
-		quick(nums, left, pr);
+		ft_quick_sort(nums, left, pr);
 	if (pl < right)
-		quick(nums, pl, right);
+		ft_quick_sort(nums, pl, right);
 }
