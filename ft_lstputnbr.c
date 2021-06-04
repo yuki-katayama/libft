@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstputnbr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/04 18:56:12 by kyuki             #+#    #+#             */
-/*   Updated: 2021/06/04 19:04:31 by kyuki            ###   ########.fr       */
+/*   Created: 2021/06/04 19:03:21 by kyuki             #+#    #+#             */
+/*   Updated: 2021/06/04 19:06:36 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int num, int fd)
+void	ft_putlstnbr(t_list *lst)
 {
-	if (num < 0)
+	t_list	*ptr;
+
+	ptr = lst;
+	while (ptr != NULL)
 	{
-		num *= -1;
-		write(fd, "-", 1);
+		ft_putnbr_fd((int)ptr->content, 1);
+		ptr = ptr->next;
 	}
-	if (num > 9)
-		ft_putnbr_fd(num / 10, fd);
-	write(fd, &"0123456789"[num % 10], 1);
 }
