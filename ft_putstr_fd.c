@@ -6,7 +6,7 @@
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 03:09:37 by kyuki             #+#    #+#             */
-/*   Updated: 2020/10/11 03:09:40 by kyuki            ###   ########.fr       */
+/*   Updated: 2021/06/19 21:32:09 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	int	i;
+
+	i = -1;
 	if (!s)
 		return ;
-	while (*s)
-		write(fd, s++, 1);
+	while (s[++i])
+		write(fd, &s[i], 1);
 }
