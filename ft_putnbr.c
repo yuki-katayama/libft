@@ -6,7 +6,7 @@
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 03:12:33 by kyuki             #+#    #+#             */
-/*   Updated: 2020/10/11 03:12:34 by kyuki            ###   ########.fr       */
+/*   Updated: 2021/07/05 16:58:55 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,12 @@
 
 void	ft_putnbr(int nb)
 {
-	char	c;
-	long	a;
-
-	a = nb;
-	if (a < 0)
+	if (nb < 0)
 	{
+		nb *= -1;
 		write(1, "-", 1);
-		a = a * -1;
 	}
-	if (a >= 10)
-	{
-		ft_putnbr(a / 10);
-		ft_putnbr(a % 10);
-	}
-	else
-	{
-		c = a + '0';
-		write(1, &c, 1);
-	}
+	if (nb > 9)
+		ft_putnbr(nb / 10);
+	write(1, &"0123456789"[nb % 10], 1);
 }
