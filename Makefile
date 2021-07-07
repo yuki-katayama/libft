@@ -6,7 +6,7 @@
 #    By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/18 17:12:33 by kyuki             #+#    #+#              #
-#    Updated: 2021/07/08 01:34:00 by kyuki            ###   ########.fr        #
+#    Updated: 2021/07/08 01:44:43 by kyuki            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,21 +102,32 @@ BONUS_OBJS		= $(BONUS:.c=.o)
 .c.o:
 			$(CC) $(CFLAGS)	-I $(INCDIR) -c $< -o $(<:.c=.o)
 
-$(NAME):	$(OBJS)
+COLOR:
+			@echo "\n\033[0;32mlibft Compiling..."
+
+$(NAME):	COLOR $(OBJS)
 			ar	rcs	$(NAME)	$(OBJS)
+			@echo "libft Complete\033[0m✅"
 
 all:		$(NAME)
 
 
-clean:
+clean: ## Remove object
+			@echo "\033[0;33m cleaning..."
 			$(RM) $(OBJS) $(BONUS_OBJS)
+			@echo "Complete clean🗑\033[0m"
 
-fclean:		clean
+fclean:		clean ## Remove object and static
+			@echo "\033[0;33mRemoving executable..."
 			$(RM) $(NAME)
+			@echo "Complete fclean🗑\033[0m"
 
-re:			fclean all
+re:			fclean all ## Retry cmpiles
 
 bonus:		$(BONUS_OBJS)
 			ar rcs $(NAME) $(BONUS_OBJS)
 
-.PHONY:	all clean fclean re
+help	: ## Display this help
+	@grep -E '^[a-zA-Z1-9_-]+	:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
+
+.PHONY:	all clean fclean re help
