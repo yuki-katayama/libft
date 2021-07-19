@@ -6,7 +6,7 @@
 #    By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/18 17:12:33 by kyuki             #+#    #+#              #
-#    Updated: 2021/07/08 01:44:43 by kyuki            ###   ########.fr        #
+#    Updated: 2021/07/08 14:01:56 by kyuki            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,6 +101,7 @@ BONUS_OBJS		= $(BONUS:.c=.o)
 
 .c.o:
 			$(CC) $(CFLAGS)	-I $(INCDIR) -c $< -o $(<:.c=.o)
+			@printf "\033[0;32Compiling $< \x1b[0m⌛"
 
 COLOR:
 			@echo "\n\033[0;32mlibft Compiling..."

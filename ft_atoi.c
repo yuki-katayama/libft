@@ -6,7 +6,7 @@
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/27 01:24:39 by kyuki             #+#    #+#             */
-/*   Updated: 2020/09/27 01:24:44 by kyuki            ###   ########.fr       */
+/*   Updated: 2021/07/19 12:53:08 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_atoi(const char *str)
 {
-	unsigned long long	res;
-	int					negative;
+	long int	res;
+	int			negative;
 
 	res = 0;
 	negative = 1;
@@ -30,11 +30,11 @@ int	ft_atoi(const char *str)
 	}
 	while (*str >= '0' && *str <= '9')
 	{
-		res = res * 10 + *str - 48;
+		res = res * 10 + *str - '0';
 		str++;
-		if (res > 9223372036854775807 && negative == -1)
+		if (res > (long int)INT_MIN * -1 && negative == -1)
 			return (0);
-		if (res > 9223372036854775806 && negative == 1)
+		if (res > INT_MAX && negative == 1)
 			return (-1);
 	}
 	return ((int)res * negative);
