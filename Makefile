@@ -6,7 +6,7 @@
 #    By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/18 17:12:33 by kyuki             #+#    #+#              #
-#    Updated: 2021/07/08 14:01:56 by kyuki            ###   ########.fr        #
+#    Updated: 2021/08/01 15:23:48 by kyuki            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,7 +89,8 @@ ft_free_int.c \
 ft_quick_sort.c \
 ft_lstputnbr.c \
 ft_spaceskip.c \
-ft_arraylen.c
+ft_arraylen.c \
+ft_nbrsize.c
 
 
 BONUS =	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
