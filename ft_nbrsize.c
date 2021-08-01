@@ -6,7 +6,7 @@
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/01 15:22:39 by kyuki             #+#    #+#             */
-/*   Updated: 2021/08/01 15:24:51 by kyuki            ###   ########.fr       */
+/*   Updated: 2021/08/01 15:34:34 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_nbrsize(long int nb)
 		nb *= -1;
 		write(1, "-", 1);
 	}
-	if (nb > 9)
-		return (ft_nbrsize(nb / 10) + 1);
-	return (1);
+	if (nb < 9)
+		return (1);
+	return (ft_nbrsize(nb / 10) + 1);
 }
