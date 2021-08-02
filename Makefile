@@ -6,24 +6,39 @@
 #    By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/18 17:12:33 by kyuki             #+#    #+#              #
-#    Updated: 2021/08/01 15:49:27 by kyuki            ###   ########.fr        #
+#    Updated: 2021/08/02 12:18:30 by kyuki            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+#--------------ESCAPE CODE------------#
+ESC_CLEAR_SCREEN		?=	\x1b[2J
+ESC_CLEAR_CURRENT_LINE	?=	\x1b[2K\r
 
-NAME	=	libft.a
+ESC_DEFAULT ?=	\x1b[0m
+ESC_BOLD	?=	\x1b[1m
+ESC_UNDER	?=	\x1b[4m
+ESC_REV		?=	\x1b[7m
 
-CC	= gcc
+ESC_BLACK		?=	\x1b[30m
+ESC_RED			?=	\x1b[31m
+ESC_GREEN		?=	\x1b[32m
+ESC_YELLOW		?=	\x1b[33m
+ESC_BLUE		?=	\x1b[34m
+ESC_PURPLE		?=	\x1b[35m
+ESC_CYAN		?=	\x1b[36m
+ESC_WHITE		?=	\x1b[37m
 
-CFLAGS	= -Wall	-Wextra	-Werror
+ESC_BACK_BLACK		?=	\x1b[40m
+ESC_BACK_RED		?=	\x1b[41m
+ESC_BACK_GREEN		?=	\x1b[42m
+ESC_BACK_YELLOW		?=	\x1b[43m
+ESC_BACK_BLUE		?=	\x1b[44m
+ESC_BACK_PURPLE		?=	\x1b[45m
+ESC_BACK_CYAN		?=	\x1b[46m
+ESC_BACK_GRAY		?=	\x1b[47m
 
-RM		=	rm -f
-
-INCDIR	=	./libft
-
-SRCDIR	=	./
-
-SRCNAME	=	ft_bzero.c \
+#-----------SET SRC INFO----------#
+SRCNAME	?=	ft_bzero.c \
 ft_atoi.c \
 ft_isalnum.c \
 ft_isalpha.c \
@@ -92,42 +107,50 @@ ft_spaceskip.c \
 ft_arraylen.c \
 ft_nbrlen.c
 
+SRCDIR	?=
+INCDIR	?=	-L./libft -lft
+OBJDIR ?= ./obj
 
-BONUS =	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+SRCS ?= $(addprefix $(SRCDIR), $(SRCNAME))
 
-SRCS	=	$(addprefix $(SRCDIR), $(SRCNAME))
+#-------------SET VARIEBLE-----------#
 
-OBJS	=	$(SRCS:.c=.o)
-BONUS_OBJS		= $(BONUS:.c=.o)
+NAME	?=	libft.a
 
-.c.o:
-			$(CC) $(CFLAGS)	-I $(INCDIR) -c $< -o $(<:.c=.o)
-			@printf "\033[0;32Compiling $< \x1b[0m⌛"
+CC		?= gcc
 
-COLOR:
-			@echo "\n\033[0;32mlibft Compiling..."
+CFLAGS	?= -Wall -Wextra -Werror -g
 
-$(NAME):	COLOR $(OBJS)
-			ar	rcs	$(NAME)	$(OBJS)
-			@echo "libft Complete\033[0m✅"
+RM		:=	rm -rf
+
+OBJS	?=	$(addprefix $(OBJDIR)/, $(notdir $(SRCS:.c=.o)))
+
+DEPENDS	?= $(OBJS:.o=.d)
+#-------------------------------------#
+
+$(OBJDIR)/%.o: $(SRCDIR)%.c
+	@-mkdir -p $(OBJDIR)
+	@$(CC) $(CFLAGS)  -MMD -MP -MF obj/$(<:.c=.d) -c $< -o $@
+	@printf "$(ESC_CLEAR_CURRENT_LINE) $(ESC_YELLOW) $< ⌛"
+
+-include $(DEPENDS)
+
+$(NAME):	$(OBJS)
+			@printf "$(ESC_CLEAR_CURRENT_LINE) $(ESC_GREEN) All files compiled into '$(OBJDIR)'. $(ESC_DEFAULT)✅\n"
+			@ar	rcs	$(NAME)	$(OBJS)
+			@echo "$(ESC_GREEN) '$(NAME)' was created. $(ESC_DEFAULT)✅"
 
 all:		$(NAME)
 
+clean	: ## Remove object
+			@$(RM) obj
+			@echo "$(ESC_RED) '"$(OBJDIR)"' has been deleted. $(ESC_DEFAULT)🗑️"
 
-clean: ## Remove object
-			@echo "\033[0;33m cleaning..."
-			$(RM) $(OBJS) $(BONUS_OBJS)
-			@echo "Complete clean🗑\033[0m"
+fclean	:	clean ## Remove object and static
+			@$(RM) $(NAME)
+			@echo "$(ESC_RED) '"$(NAME)"' has been deleted. $(ESC_DEFAULT)🗑️"
 
-fclean:		clean ## Remove object and static
-			@echo "\033[0;33mRemoving executable..."
-			$(RM) $(NAME)
-			@echo "Complete fclean🗑\033[0m"
-
-re:			fclean all ## Retry cmpiles
-
-bonus:		$(BONUS_OBJS)
-			ar rcs $(NAME) $(BONUS_OBJS)
+re	:			fclean all ## Retry cmpiles
 
 help	: ## Display this help
 	@grep -E '^[a-zA-Z1-9_-]+	:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
