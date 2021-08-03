@@ -6,7 +6,7 @@
 #    By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/18 17:12:33 by kyuki             #+#    #+#              #
-#    Updated: 2021/08/04 00:26:06 by kyuki            ###   ########.fr        #
+#    Updated: 2021/08/04 00:36:12 by kyuki            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -166,12 +166,12 @@ $(OBJDIR)/%.o: $(SRCDIR)%.c
 	@-mkdir -p $(OBJDIR)
 	@-mkdir -p $(DPSDIR)
 	@$(CC) $(CFLAGS)  -MMD -MP -MF $(DPSDIR)/$(<:.c=.d) -c $< -o $@
-	@printf "$(ESC_CLEAR_CURRENT_LINE) $(ESC_YELLOW) $< ⌛"
+	@printf "$(ESC_CLEAR_CURRENT_LINE)$(ESC_YELLOW)$< ⌛"
 
 -include $(DPS)
 
 $(NAME):	$(OBJS)
-			@printf "$(ESC_CLEAR_CURRENT_LINE) $(ESC_GREEN) All files compiled into '$(OBJDIR)'. $(ESC_DEFAULT)✅\n"
+			@printf "$(ESC_CLEAR_CURRENT_LINE)$(ESC_GREEN)libft: All files compiled into '$(OBJDIR)' and '$(DPSDIR)'. $(ESC_DEFAULT)✅\n"
 			@ar	rcs	$(NAME)	$(OBJS)
 			@echo "$(ESC_GREEN)libft: '$(NAME)' was created. $(ESC_DEFAULT)✅"
 
