@@ -6,7 +6,7 @@
 #    By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/18 17:12:33 by kyuki             #+#    #+#              #
-#    Updated: 2021/08/03 21:26:01 by kyuki            ###   ########.fr        #
+#    Updated: 2021/08/04 00:26:06 by kyuki            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -173,16 +173,16 @@ $(OBJDIR)/%.o: $(SRCDIR)%.c
 $(NAME):	$(OBJS)
 			@printf "$(ESC_CLEAR_CURRENT_LINE) $(ESC_GREEN) All files compiled into '$(OBJDIR)'. $(ESC_DEFAULT)✅\n"
 			@ar	rcs	$(NAME)	$(OBJS)
-			@echo "$(ESC_GREEN) '$(NAME)' was created. $(ESC_DEFAULT)✅"
+			@echo "$(ESC_GREEN)libft: '$(NAME)' was created. $(ESC_DEFAULT)✅"
 
 clean	: ## Remove object
 			@$(RM) $(OBJDIR)
 			@$(RM) $(DPSDIR)
-			@echo "$(ESC_RED) '"$(OBJDIR)"' '"$(DPSDIR)"' has been deleted. $(ESC_DEFAULT)🗑️"
+			@echo "$(ESC_RED)libft: '"$(OBJDIR)"' '"$(DPSDIR)"' has been deleted. $(ESC_DEFAULT)🗑️"
 
 fclean	:	clean ## Remove object and static
 			@$(RM) $(NAME)
-			@echo "$(ESC_RED) '"$(NAME)"' has been deleted. $(ESC_DEFAULT)🗑️"
+			@echo "$(ESC_RED)libft: '"$(NAME)"' has been deleted. $(ESC_DEFAULT)🗑️"
 
 re	:			fclean all ## Retry cmpiles
 
