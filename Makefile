@@ -6,7 +6,7 @@
 #    By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/18 17:12:33 by kyuki             #+#    #+#              #
-#    Updated: 2021/08/03 20:57:45 by kyuki            ###   ########.fr        #
+#    Updated: 2021/08/03 21:26:01 by kyuki            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,13 @@ else
 	ESC_BACK_CYAN		?=	\x1b[46m
 	ESC_BACK_GRAY		?=	\x1b[47m
 endif
+
+#-----------SET DIR---------------#
+
+SRCDIR	?=
+INCDIR	?=	-L./libft -lft
+OBJDIR	?= ./obj
+DPSDIR	?= ./dps
 
 #-----------SET SRC INFO----------#
 SRCNAME	?=	ft_bzero.c \
@@ -135,10 +142,6 @@ ft_spaceskip.c \
 ft_arraylen.c \
 ft_nbrlen.c
 
-SRCDIR	?=
-INCDIR	?=	-L./libft -lft
-OBJDIR	?= ./obj
-
 SRCS	?= $(addprefix $(SRCDIR), $(SRCNAME))
 
 #-------------SET VARIEBLE-----------#
@@ -151,28 +154,31 @@ CFLAGS	?= -Wall -Wextra -Werror -g
 
 RM		:=	rm -rf
 
-OBJS	?=	$(addprefix $(OBJDIR)/, $(notdir $(SRCS:.c=.o)))
+OBJS	?= $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.c=.o)))
+DPS		?= $(addprefix $(DPSDIR)/, $(notdir $(SRCS:.o=.d)))
 
-DEPENDS	?= $(OBJS:.o=.d)
 #-------------------------------------#
+
+
+all:		$(NAME)
 
 $(OBJDIR)/%.o: $(SRCDIR)%.c
 	@-mkdir -p $(OBJDIR)
-	@$(CC) $(CFLAGS)  -MMD -MP -MF obj/$(<:.c=.d) -c $< -o $@
+	@-mkdir -p $(DPSDIR)
+	@$(CC) $(CFLAGS)  -MMD -MP -MF $(DPSDIR)/$(<:.c=.d) -c $< -o $@
 	@printf "$(ESC_CLEAR_CURRENT_LINE) $(ESC_YELLOW) $< ⌛"
 
--include $(DEPENDS)
+-include $(DPS)
 
 $(NAME):	$(OBJS)
 			@printf "$(ESC_CLEAR_CURRENT_LINE) $(ESC_GREEN) All files compiled into '$(OBJDIR)'. $(ESC_DEFAULT)✅\n"
 			@ar	rcs	$(NAME)	$(OBJS)
 			@echo "$(ESC_GREEN) '$(NAME)' was created. $(ESC_DEFAULT)✅"
 
-all:		$(NAME)
-
 clean	: ## Remove object
-			@$(RM) obj
-			@echo "$(ESC_RED) '"$(OBJDIR)"' has been deleted. $(ESC_DEFAULT)🗑️"
+			@$(RM) $(OBJDIR)
+			@$(RM) $(DPSDIR)
+			@echo "$(ESC_RED) '"$(OBJDIR)"' '"$(DPSDIR)"' has been deleted. $(ESC_DEFAULT)🗑️"
 
 fclean	:	clean ## Remove object and static
 			@$(RM) $(NAME)
