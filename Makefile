@@ -69,7 +69,7 @@ endif
 
 SRCDIR	?=
 INCDIR	?=	-L./libft -lft
-OBJDIR	?= ./obj
+OBJDIR	?= ./objs
 DPSDIR	?= ./dps
 
 #-----------SET SRC INFO----------#
