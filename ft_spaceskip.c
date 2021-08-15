@@ -6,16 +6,16 @@
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 02:16:23 by kyuki             #+#    #+#             */
-/*   Updated: 2021/05/12 13:56:50 by kyuki            ###   ########.fr       */
+/*   Updated: 2021/08/15 15:51:42 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_spaceskip(const char *str, int *i)
+char	*ft_spaceskip(const char *str)
 {
-	while ((str[*i] == ' ' || str[*i] == '\t' || str[*i] == '\n') \
-			|| (str[*i] == '\r' || str[*i] == '\v' || str[*i] == '\f'))
-		(*i)++;
-	return (1);
+	while ((*str == ' ' || *str == '\t' || *str == '\n') \
+			|| (*str == '\r' || *str == '\v' || *str == '\f'))
+		str++;
+	return ((char *)str);
 }

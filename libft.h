@@ -76,7 +76,7 @@ void			*ft_free_char(char **word, int index);
 int				ft_malloc_p(void **p, size_t len);
 int				ft_malloc_pp(void ***p, size_t len);
 void			ft_swap(int *a, int *b);
-int				ft_spaceskip(const char *str, int *i);
+char			*ft_spaceskip(const char *str);
 t_list			*ft_lstcpy(t_list *lst);
 void			ft_free_int(int **ptr);
 void			ft_quick_sort(int *nums, int left, int right);
