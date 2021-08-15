@@ -83,5 +83,6 @@ void			ft_quick_sort(int *nums, int left, int right);
 int				ft_arraylen(char **array);
 int				ft_nbrlen(long int nb);
 char			*ft_charskip(const char *str, char skip);
+char			*ft_skip(const char *str, int len);
 
 #endif
