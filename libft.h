@@ -7,6 +7,7 @@
 # include <limits.h>
 # include <unistd.h>
 # include <ctype.h>
+# include <stdbool.h>
 
 typedef struct s_list
 {
