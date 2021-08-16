@@ -1,13 +1,11 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
-# include <limits.h>
-# include <unistd.h>
-# include <ctype.h>
-# include <stdbool.h>
+# include <stdlib.h> //malloc
+# include <limits.h> //INT_
+# include <unistd.h> //write
+# include <stdbool.h> //bool
+# include <sys/stat.h> //stat
 
 typedef struct s_list
 {
@@ -87,5 +85,6 @@ char			*ft_charskip(const char *str, char skip);
 char			*ft_skip(const char *str, int len);
 bool			ft_isdigitstr(char *str);
 char			*ft_untilskip(char *str, char c);
+struct stat		ft_getstat(char *file_name);
 
 #endif
