@@ -86,5 +86,6 @@ int				ft_nbrlen(long int nb);
 char			*ft_charskip(const char *str, char skip);
 char			*ft_skip(const char *str, int len);
 bool			ft_isdigitstr(char *str);
+char			*ft_untilskip(char *str, char c);
 
 #endif

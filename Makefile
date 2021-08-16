@@ -6,7 +6,7 @@
 #    By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/18 17:12:33 by kyuki             #+#    #+#              #
-#    Updated: 2021/08/15 20:13:09 by kyuki            ###   ########.fr        #
+#    Updated: 2021/08/17 02:40:09 by kyuki            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -143,7 +143,8 @@ ft_arraylen.c \
 ft_nbrlen.c \
 ft_charskip.c \
 ft_skip.c \
-ft_isdigitstr.c
+ft_isdigitstr.c \
+ft_untilskip.c
 
 SRCS	?= $(addprefix $(SRCDIR), $(SRCNAME))
 
