@@ -6,7 +6,7 @@
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 03:10:17 by kyuki             #+#    #+#             */
-/*   Updated: 2021/04/05 18:11:35 by kyuki            ###   ########.fr       */
+/*   Updated: 2021/08/29 12:25:44 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,19 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	length;
 	size_t	i;
 	char	*dest;
 
 	i = 0;
-	dest = NULL;
 	if (!s1 || !s2)
 		return (NULL);
-	length = ft_strlen(s1);
-	length += ft_strlen(s2);
-	if (!(ft_malloc_p((void **)&dest, sizeof(char) * length + 1)))
+	if (!(ft_malloc_p((void **)&dest, sizeof(char) \
+			* (ft_strlen(s1) + ft_strlen(s2) + 1))))
 		return (NULL);
-	while (s1[i] != '\0')
-	{
-		dest[i] = s1[i];
-		i++;
-	}
-	while (i < length)
-	{
-		dest[i] = *s2++;
-		i++;
-	}
+	while (*s1)
+		dest[i++] = *s1++;
+	while (*s2)
+		dest[i++] = *s2++;
 	dest[i] = '\0';
 	return (dest);
 }
