@@ -6,7 +6,7 @@
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 03:09:55 by kyuki             #+#    #+#             */
-/*   Updated: 2020/10/11 03:09:58 by kyuki            ###   ########.fr       */
+/*   Updated: 2021/08/29 12:33:04 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,13 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	size_t	length;
-	size_t	i;
-
-	i = 0;
-	length = ft_strlen(s) + 1;
-	while (i < length)
+	while (*s)
 	{
-		if (((unsigned char *)s)[i] == (unsigned char)c)
-		{
-			return (&((char *)s)[i]);
-		}
-		i++;
+		if (*((unsigned char *)s) == (unsigned char)c)
+			return ((char *)s);
+		++s;
 	}
+	if (!c)
+		return ((char *)s);
 	return (NULL);
 }
