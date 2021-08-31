@@ -5,19 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/15 20:06:51 by kyuki             #+#    #+#             */
-/*   Updated: 2021/08/31 09:37:04 by kyuki            ###   ########.fr       */
+/*   Created: 2021/08/31 19:26:34 by kyuki             #+#    #+#             */
+/*   Updated: 2021/08/31 19:26:55 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 int	ft_arraylen(char **array)
 {
-	int	i;
+	size_t	i;
 
-	i = -1;
-	while (array[++i] != NULL)
-		;
-	return (i + 1);
+	i = 0;
+	while (array[i] != NULL)
+		i++;
+	return (i);
 }
