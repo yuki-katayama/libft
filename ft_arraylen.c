@@ -6,7 +6,7 @@
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 20:06:51 by kyuki             #+#    #+#             */
-/*   Updated: 2021/08/15 20:06:52 by kyuki            ###   ########.fr       */
+/*   Updated: 2021/08/31 09:37:04 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ int	ft_arraylen(char **array)
 	i = -1;
 	while (array[++i] != NULL)
 		;
-	return (i);
+	return (i + 1);
 }
