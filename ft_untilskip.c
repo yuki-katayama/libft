@@ -6,12 +6,16 @@
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 02:39:44 by kyuki             #+#    #+#             */
-/*   Updated: 2021/08/17 02:40:20 by kyuki            ###   ########.fr       */
+/*   Updated: 2021/08/31 08:53:30 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char	*ft_untilskip(char *str, char c)
 {
+	if (str == NULL)
+		return (NULL);
 	while (!(*str == c || *str == '\0'))
 		str++;
 	return (str);
