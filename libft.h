@@ -86,6 +86,6 @@ char			*ft_skip(const char *str, int len);
 bool			ft_isdigitstr(char *str);
 char			*ft_untilskip(char *str, char c);
 struct stat		ft_getstat(char *file_name);
-char			*ft_chardel(char *str, char c);
+char			*ft_chardel(char *str, char *c);
 
 #endif
