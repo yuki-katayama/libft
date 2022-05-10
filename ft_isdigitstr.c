@@ -6,13 +6,13 @@
 /*   By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 20:09:25 by kyuki             #+#    #+#             */
-/*   Updated: 2021/08/15 20:12:33 by kyuki            ###   ########.fr       */
+/*   Updated: 2022/05/10 22:32:38 by kyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-bool	ft_isdigitstr(char *str)
+bool	ft_isdigitstr(const char *str)
 {
 	size_t	index;
 	bool	has_digit;

@@ -6,7 +6,7 @@
 #    By: kyuki <kyuki@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/18 17:12:33 by kyuki             #+#    #+#              #
-#    Updated: 2021/08/18 02:05:48 by kyuki            ###   ########.fr        #
+#    Updated: 2022/05/10 22:40:17 by kyuki            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -161,7 +161,7 @@ CFLAGS	?= -Wall -Wextra -Werror -g
 RM		:=	rm -rf
 
 OBJS	?= $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.c=.o)))
-DPS		?= $(addprefix $(DPSDIR)/, $(notdir $(SRCS:.o=.d)))
+DPS		?= $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.c=.d)))
 
 #-------------------------------------#
 
@@ -171,7 +171,7 @@ all:		$(NAME)
 $(OBJDIR)/%.o: $(SRCDIR)%.c
 	@-mkdir -p $(OBJDIR)
 	@-mkdir -p $(DPSDIR)
-	@$(CC) $(CFLAGS)  -MMD -MP -MF $(DPSDIR)/$(<:.c=.d) -c $< -o $@
+	@$(CC) $(CFLAGS)  -MMD -MP -c $< -o $@
 	@printf "$(ESC_CLEAR_CURRENT_LINE)$(ESC_YELLOW)$< ⌛"
 
 -include $(DPS)
@@ -193,6 +193,6 @@ fclean	:	clean ## Remove object and static
 re	:			fclean all ## Retry cmpiles
 
 help	: ## Display this help
-	@grep -E '^[a-zA-Z1-9_-]+	:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
+	@grep -E '^[a-zA-Z1-9_-]+	:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = "	:.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
 .PHONY:	all clean fclean re help
